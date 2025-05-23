@@ -1,0 +1,23 @@
+{
+  "name": "ch06",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cookie-parser": "^1.4.7",
+    "errorhandler": "^1.5.1",
+    "express": "^5.1.0",
+    "express-error-handler": "^1.1.0",
+    "express-session": "^1.18.1",
+    "http": "^0.0.1-security",
+    "mongob": "^1.0.0",
+    "path": "^0.12.7",
+    "serve-static": "^2.2.0"
+  }
+}
