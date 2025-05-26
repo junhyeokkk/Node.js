@@ -19,7 +19,7 @@ async function main() {
     // 2. ltcTime 현재시간으로 업데이트
     const nowIso = new Date().toISOString();
 
-    console.log('ISOstring 형식  : ' + nowIso);
+    console.log('ISO_string 형식  : ' + nowIso);
 
     for (const doc of resources) {
         doc.ltctime = nowIso;  // ISO 문자열로 갱신
@@ -30,7 +30,7 @@ async function main() {
         // replace 메서드는 수정된 전체 문서가 필요함
         await container.item(id, shipkey).replace(doc);
 
-        console.log(`문서 ${id}의 ltctime 업데이트 완료: ${nowIso}`);
+        console.log(`문서 ${id}의 ltc_time 업데이트 완료: ${nowIso}`);
     }
 }
 
