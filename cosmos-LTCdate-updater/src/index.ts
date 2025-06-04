@@ -1,15 +1,12 @@
-import dotenv from "dotenv";
-// import { readKeysFromExcel } from "./utils/excelReader";
-// import { updateDateForKey } from "./services/dateUpdater";
+import express from 'express';
+import ltcRoutes from './routes/ltc.route';
 
-dotenv.config();
+const app = express();
+const PORT = 3000;
 
-async function main() {
-    // const keys = await readKeysFromExcel("data.xlsx");
-    // for (const key of keys) {
-    //     await updateDateForKey(key);
-    // }
-    console.log("날짜 갱신 완료");
-}
+app.use(express.json());
+app.use('/api', ltcRoutes);
 
-main().catch(console.error);
+app.listen(PORT, () => {
+  console.log(`서버가 http://localhost:${PORT} 에서 실행 중`);
+});
