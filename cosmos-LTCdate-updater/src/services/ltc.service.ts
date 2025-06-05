@@ -9,15 +9,30 @@ export async function updateLTCWithExcel(inputPath: string, outputPath: string) 
   let updatedCount = 0;
 
   for (const row of data) { // 하나의 row당 한번씩 쿼리 돌리기 (성능 개선 가능)
-    if (row.test !== 'o') continue;
+    
+    // 조건 삽입 구간
+
+    if (row.test !== 'o') continue; // 테스트 열의 값이 o인것만 쿼리 돌리기 ==> 초기설정 
     const shipkey = row.shipkey;
-    if (!shipkey) continue;
+   
+    if (!shipkey) continue; 
 
     try {
       const latestLTC = await getLatestLTCByShipkey(shipkey);
       if (!latestLTC) continue;
 
-      if (!row.LTCdate || new Date(latestLTC) > new Date(row.LTCdate)) {
+      const rowDate = new Date(row.LTCdate);
+      const latestDate = new Date(latestLTC);
+
+      if (isNaN(rowDate.getTime())) {
+        console.warn(`[${shipkey}] row.LTCdate가 유효하지 않아 무시됨:`, row.LTCdate);
+        row.LTCdate = latestLTC;
+        updatedShipkeys.push(shipkey);
+        updatedCount++;
+        continue;
+      }
+
+      if (!row.LTCdate || latestDate > rowDate) {
         row.LTCdate = latestLTC;
         updatedShipkeys.push(shipkey);
         updatedCount++;
@@ -25,7 +40,7 @@ export async function updateLTCWithExcel(inputPath: string, outputPath: string) 
     } catch (err) {
       console.error(`[${shipkey}] 처리 중 오류:`, err);
     }
-  }
+      }
 
   if (updatedCount > 0) {
     writeExcel(outputPath, data);
