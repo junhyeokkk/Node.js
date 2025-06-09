@@ -1,53 +1,67 @@
+import { CustomError } from '../errors/CustomError';
+import { shouldProcessRow } from '../excel_helper/excelFilter';
+import { readExcel } from '../excel_helper/excelReader';
+import { writeExcel } from '../excel_helper/excelWriter';
+import { ExcelRow } from '../models/excelRow';
+import { getLTCMinMaxByShipkey } from '../repositories/cosmos.repository';
 
-import { getLatestLTCByShipkey } from '../repositories/cosmos.repository';
-import { readExcel } from '../utils/excelReader';
-import { writeExcel } from '../utils/excelWriter';
+// 조건에 따른 엑셀값 <-> DB값 변경 
+function updateRowWithLatestLTC(row: ExcelRow, resultTime: { latest: string, earliest: string | null, appVersion: string | null }, sk: string, updatedShipkeys: string[], updateCounter: { count: number }) {
+  row.lastReportDate = resultTime.latest; // 엑셀 마지막 LTC 데이터 DB 값으로 세팅
+  row.firstReportDate = resultTime.earliest || ''; // 엑셀 처음 LTC 데이터 DB 값으로 세팅
+  row.appVersion = resultTime.appVersion || ''; // 앱 버전
+  updatedShipkeys.push(sk);
+  updateCounter.count++;
+}
 
 export async function updateLTCWithExcel(inputPath: string, outputPath: string) {
-  const data = readExcel(inputPath);
+  const data: ExcelRow[] = readExcel(inputPath);
+
   const updatedShipkeys: string[] = [];
-  let updatedCount = 0;
+  const updateCounter = { count: 0 };
 
-  for (const row of data) { // 하나의 row당 한번씩 쿼리 돌리기 (성능 개선 가능)
-    
-    // 조건 삽입 구간
+  for (const row of data) {
+    if (!shouldProcessRow(row)) continue;
 
-    if (row.test !== 'o') continue; // 테스트 열의 값이 o인것만 쿼리 돌리기 ==> 초기설정 
-    const shipkey = row.shipkey;
-   
-    if (!shipkey) continue; 
+    const sk = row.shipKey;
+    const resultTime = await getLTCMinMaxByShipkey(sk);
 
-    try {
-      const latestLTC = await getLatestLTCByShipkey(shipkey);
-      if (!latestLTC) continue;
+    if (!resultTime.latest) continue;
 
-      const rowDate = new Date(row.LTCdate);
-      const latestDate = new Date(latestLTC);
+    const latestDate = new Date(resultTime.latest);
+    const rawLastReport = row.lastReportDate;
 
-      if (isNaN(rowDate.getTime())) {
-        console.warn(`[${shipkey}] row.LTCdate가 유효하지 않아 무시됨:`, row.LTCdate);
-        row.LTCdate = latestLTC;
-        updatedShipkeys.push(shipkey);
-        updatedCount++;
-        continue;
-      }
 
-      if (!row.LTCdate || latestDate > rowDate) {
-        row.LTCdate = latestLTC;
-        updatedShipkeys.push(shipkey);
-        updatedCount++;
-      }
-    } catch (err) {
-      console.error(`[${shipkey}] 처리 중 오류:`, err);
+    // 조건 1: lastReportDate가 빈 문자열
+    if (rawLastReport === '') {
+      updateRowWithLatestLTC(row, resultTime as { latest: string, earliest: string | null, appVersion: string | null}, sk, updatedShipkeys, updateCounter);
+      continue;
     }
-      }
 
-  if (updatedCount > 0) {
-    writeExcel(outputPath, data);
-    console.log(`${updatedCount}건 업데이트 완료`);
-  } else {
-    console.log('업데이트된 데이터 없음');
+    // 조건 2: 날짜 형식이 유효하지 않음
+    const rowDate = new Date(rawLastReport);
+    if (isNaN(rowDate.getTime())) {
+      console.warn(`[${sk}] row.lastReportDate가 유효하지 않아 무시됨:`, rawLastReport);
+      updateRowWithLatestLTC(row, resultTime as { latest: string, earliest: string | null, appVersion: string | null }, sk, updatedShipkeys, updateCounter);
+      continue;
+    }
+
+    // 조건 3: DB의 최신 날짜가 더 나중일 경우
+    if (latestDate > rowDate) {
+      updateRowWithLatestLTC(row, resultTime as { latest: string, earliest: string | null, appVersion: string | null }, sk, updatedShipkeys, updateCounter);
+    }
   }
 
-  return { updatedCount, updatedShipkeys };
+  try {
+    if (updateCounter.count > 0) {
+      writeExcel(outputPath, data);
+      console.log(`${updateCounter.count}건 업데이트 완료`);
+    } else {
+      console.log('업데이트된 데이터 없음');
+    }
+  } catch (err) {
+    throw new CustomError('엑셀 파일 저장 중 오류 발생', 500);
+  }
+
+  return { updatedCount: updateCounter.count, updatedShipkeys };
 }

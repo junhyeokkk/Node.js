@@ -1,4 +1,4 @@
-// 전역 에러 처리 
+// 커스텀 에러처리 모델
 export class CustomError extends Error {
   public statusCode: number;
 

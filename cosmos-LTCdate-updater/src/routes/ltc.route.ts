@@ -9,14 +9,15 @@ const router = express.Router();
 // multer 설정
 const upload = multer({
   dest: path.join(__dirname, '../../response_excel'),
-  limits: { fileSize: 5 * 1024 * 1024 },
+  limits: { fileSize: 5 * 1024 * 1024 }, // 파일 사이즈 지정 --> 추후 엑셀이 어느정도 용량이 되는가? 파악 
 });
 
-// 엑셀 업로드 → LTC 업데이트
+// 엑셀 업로드 -> LTC 업데이트
 router.post('/ltc/update', upload.single('excel'), handleLTCUpdate);
 
 // 엑셀 다운로드 API
-router.get('/ltc/download/:filename', (req: Request, res: Response) => {
+router.get('/ltc/download/:filename', 
+  (req: Request, res: Response) => {
   const filename = req.params.filename;
   const filePath = path.join(__dirname, '../response_excel', filename);
 

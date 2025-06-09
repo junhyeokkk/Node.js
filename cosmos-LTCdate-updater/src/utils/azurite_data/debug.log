@@ -1,0 +1,152 @@
+2025-06-09T04:31:37.853Z 	 info: Azurite Blob service is starting on 127.0.0.1:10000
+2025-06-09T04:31:37.854Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:31:37.854Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:31:37.883Z 	 info: BlobGCManager:start() Starting BlobGCManager. Set status to Initializing.
+2025-06-09T04:31:37.883Z 	 info: BlobGCManager:start() Trigger mark and sweep loop. Set status to Running.
+2025-06-09T04:31:37.884Z 	 info: BlobGCManager:markSweepLoop() Start next mark and sweep.
+2025-06-09T04:31:37.884Z 	 info: BlobGCManager:markSweep() Get all extents.
+2025-06-09T04:31:37.884Z 	 info: BlobGCManager:start() BlobGCManager successfully started.
+2025-06-09T04:31:37.890Z 	 info: BlobGCManager:markSweep() Got 0 extents.
+2025-06-09T04:31:37.891Z 	 info: BlobGCManager:markSweep() Get referred extents.
+2025-06-09T04:31:37.891Z 	 info: BlobGCManager:markSweep() Got referred extents, unreferenced extents count is 0.
+2025-06-09T04:31:37.891Z 	 info: BlobGCManager:markSweepLoop() Mark and sweep finished, taken 7ms.
+2025-06-09T04:31:37.891Z 	 info: BlobGCManager:markSweepLoop() Sleep for 600000ms.
+2025-06-09T04:31:37.896Z 	 info: Azurite Blob service successfully listens on http://127.0.0.1:10000
+2025-06-09T04:31:37.896Z 	 info: Azurite Queue service is starting on 127.0.0.1:10001
+2025-06-09T04:31:37.896Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:31:37.896Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:31:37.917Z 	 info: QueueGCManager:start() Starting QueueGCManager, set status to Initializing
+2025-06-09T04:31:37.917Z 	 info: QueueGCManager:start() Trigger mark and sweep loop, set status to Running.
+2025-06-09T04:31:37.917Z 	 info: QueueGCManager:markSweepLoop() Start new mark and sweep.
+2025-06-09T04:31:37.917Z 	 info: QueueGCManger:markSweep() Get all extents.
+2025-06-09T04:31:37.918Z 	 info: QueueGCManager:start() QueueGCManager successfully started.
+2025-06-09T04:31:37.918Z 	 info: QueueGCManager:marksweep() Get 0 extents.
+2025-06-09T04:31:37.918Z 	 info: QueueGCManager:markSweep() Get referred extents, then remove from allExtents.
+2025-06-09T04:31:37.918Z 	 info: QueueGCManager:markSweep() Got referred extents, unreferenced extents count is 0.
+2025-06-09T04:31:37.918Z 	 info: QueueGCManager:markSweepLoop() Mark and sweep finished, take 1ms.
+2025-06-09T04:31:37.918Z 	 info: QueueGCManager:markSweepLoop() Sleep for 60000
+2025-06-09T04:31:37.919Z 	 info: Azurite Queue service successfully listens on http://127.0.0.1:10001
+2025-06-09T04:31:37.920Z 	 info: Azurite Table service is starting on 127.0.0.1:10002
+2025-06-09T04:31:37.920Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:31:37.920Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:31:37.933Z 	 info: Azurite Table service successfully listens on http://127.0.0.1:10002
+2025-06-09T04:31:37.934Z 	 info: InstaceID 09943206-515a-437d-9866-be5bb2f7343f, SessionID 484c7ff5-2afd-47f3-ad4d-faa56fe1b3c4.
+2025-06-09T04:31:37.963Z 	 info: Telemetry initialize successfully.
+2025-06-09T04:31:37.965Z 	 verbose: Send start telemetry
+2025-06-09T04:32:37.859Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:32:37.859Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:32:37.905Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:32:37.905Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:32:37.920Z 	 info: QueueGCManager:markSweepLoop() Start new mark and sweep.
+2025-06-09T04:32:37.921Z 	 info: QueueGCManger:markSweep() Get all extents.
+2025-06-09T04:32:37.921Z 	 info: QueueGCManager:marksweep() Get 0 extents.
+2025-06-09T04:32:37.921Z 	 info: QueueGCManager:markSweep() Get referred extents, then remove from allExtents.
+2025-06-09T04:32:37.921Z 	 info: QueueGCManager:markSweep() Got referred extents, unreferenced extents count is 0.
+2025-06-09T04:32:37.921Z 	 info: QueueGCManager:markSweepLoop() Mark and sweep finished, take 1ms.
+2025-06-09T04:32:37.921Z 	 info: QueueGCManager:markSweepLoop() Sleep for 60000
+2025-06-09T04:32:37.921Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:32:37.922Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:33:37.869Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:33:37.870Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:33:37.915Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:33:37.916Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:33:37.930Z 	 info: QueueGCManager:markSweepLoop() Start new mark and sweep.
+2025-06-09T04:33:37.931Z 	 info: QueueGCManger:markSweep() Get all extents.
+2025-06-09T04:33:37.931Z 	 info: QueueGCManager:marksweep() Get 0 extents.
+2025-06-09T04:33:37.931Z 	 info: QueueGCManager:markSweep() Get referred extents, then remove from allExtents.
+2025-06-09T04:33:37.931Z 	 info: QueueGCManager:markSweep() Got referred extents, unreferenced extents count is 0.
+2025-06-09T04:33:37.931Z 	 info: QueueGCManager:markSweepLoop() Mark and sweep finished, take 0ms.
+2025-06-09T04:33:37.931Z 	 info: QueueGCManager:markSweepLoop() Sleep for 60000
+2025-06-09T04:33:37.931Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:33:37.932Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:34:37.883Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:34:37.884Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:34:37.915Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:34:37.915Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:34:37.945Z 	 info: QueueGCManager:markSweepLoop() Start new mark and sweep.
+2025-06-09T04:34:37.946Z 	 info: QueueGCManger:markSweep() Get all extents.
+2025-06-09T04:34:37.946Z 	 info: QueueGCManager:marksweep() Get 0 extents.
+2025-06-09T04:34:37.946Z 	 info: QueueGCManager:markSweep() Get referred extents, then remove from allExtents.
+2025-06-09T04:34:37.946Z 	 info: QueueGCManager:markSweep() Got referred extents, unreferenced extents count is 0.
+2025-06-09T04:34:37.946Z 	 info: QueueGCManager:markSweepLoop() Mark and sweep finished, take 0ms.
+2025-06-09T04:34:37.946Z 	 info: QueueGCManager:markSweepLoop() Sleep for 60000
+2025-06-09T04:34:37.946Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:34:37.946Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:35:37.886Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:35:37.886Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:35:37.916Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:35:37.917Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:35:37.948Z 	 info: QueueGCManager:markSweepLoop() Start new mark and sweep.
+2025-06-09T04:35:37.948Z 	 info: QueueGCManger:markSweep() Get all extents.
+2025-06-09T04:35:37.948Z 	 info: QueueGCManager:marksweep() Get 0 extents.
+2025-06-09T04:35:37.948Z 	 info: QueueGCManager:markSweep() Get referred extents, then remove from allExtents.
+2025-06-09T04:35:37.948Z 	 info: QueueGCManager:markSweep() Got referred extents, unreferenced extents count is 0.
+2025-06-09T04:35:37.948Z 	 info: QueueGCManager:markSweepLoop() Mark and sweep finished, take 0ms.
+2025-06-09T04:35:37.948Z 	 info: QueueGCManager:markSweepLoop() Sleep for 60000
+2025-06-09T04:35:37.949Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:35:37.949Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:36:37.894Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:36:37.894Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:36:37.925Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:36:37.925Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:36:37.957Z 	 info: QueueGCManager:markSweepLoop() Start new mark and sweep.
+2025-06-09T04:36:37.957Z 	 info: QueueGCManger:markSweep() Get all extents.
+2025-06-09T04:36:37.957Z 	 info: QueueGCManager:marksweep() Get 0 extents.
+2025-06-09T04:36:37.957Z 	 info: QueueGCManager:markSweep() Get referred extents, then remove from allExtents.
+2025-06-09T04:36:37.958Z 	 info: QueueGCManager:markSweep() Got referred extents, unreferenced extents count is 0.
+2025-06-09T04:36:37.958Z 	 info: QueueGCManager:markSweepLoop() Mark and sweep finished, take 1ms.
+2025-06-09T04:36:37.958Z 	 info: QueueGCManager:markSweepLoop() Sleep for 60000
+2025-06-09T04:36:37.958Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:36:37.958Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:37:37.896Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:37:37.897Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:37:37.928Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:37:37.928Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:37:37.959Z 	 info: QueueGCManager:markSweepLoop() Start new mark and sweep.
+2025-06-09T04:37:37.959Z 	 info: QueueGCManger:markSweep() Get all extents.
+2025-06-09T04:37:37.959Z 	 info: QueueGCManager:marksweep() Get 0 extents.
+2025-06-09T04:37:37.959Z 	 info: QueueGCManager:markSweep() Get referred extents, then remove from allExtents.
+2025-06-09T04:37:37.960Z 	 info: QueueGCManager:markSweep() Got referred extents, unreferenced extents count is 0.
+2025-06-09T04:37:37.960Z 	 info: QueueGCManager:markSweepLoop() Mark and sweep finished, take 1ms.
+2025-06-09T04:37:37.960Z 	 info: QueueGCManager:markSweepLoop() Sleep for 60000
+2025-06-09T04:37:37.960Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:37:37.960Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:38:37.900Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:38:37.901Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:38:37.931Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:38:37.932Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:38:37.962Z 	 info: QueueGCManager:markSweepLoop() Start new mark and sweep.
+2025-06-09T04:38:37.963Z 	 info: QueueGCManger:markSweep() Get all extents.
+2025-06-09T04:38:37.963Z 	 info: QueueGCManager:marksweep() Get 0 extents.
+2025-06-09T04:38:37.963Z 	 info: QueueGCManager:markSweep() Get referred extents, then remove from allExtents.
+2025-06-09T04:38:37.963Z 	 info: QueueGCManager:markSweep() Got referred extents, unreferenced extents count is 0.
+2025-06-09T04:38:37.963Z 	 info: QueueGCManager:markSweepLoop() Mark and sweep finished, take 0ms.
+2025-06-09T04:38:37.963Z 	 info: QueueGCManager:markSweepLoop() Sleep for 60000
+2025-06-09T04:38:37.964Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:38:37.964Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:39:37.905Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:39:37.905Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:39:37.935Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:39:37.935Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:39:37.965Z 	 info: QueueGCManager:markSweepLoop() Start new mark and sweep.
+2025-06-09T04:39:37.966Z 	 info: QueueGCManger:markSweep() Get all extents.
+2025-06-09T04:39:37.966Z 	 info: QueueGCManager:marksweep() Get 0 extents.
+2025-06-09T04:39:37.966Z 	 info: QueueGCManager:markSweep() Get referred extents, then remove from allExtents.
+2025-06-09T04:39:37.966Z 	 info: QueueGCManager:markSweep() Got referred extents, unreferenced extents count is 0.
+2025-06-09T04:39:37.966Z 	 info: QueueGCManager:markSweepLoop() Mark and sweep finished, take 0ms.
+2025-06-09T04:39:37.966Z 	 info: QueueGCManager:markSweepLoop() Sleep for 60000
+2025-06-09T04:39:37.966Z 	 info: AccountDataStore:init() Refresh accounts from environment variable AZURITE_ACCOUNTS with value undefined
+2025-06-09T04:39:37.966Z 	 info: AccountDataStore:init() Fallback to default emulator account devstoreaccount1.
+2025-06-09T04:40:04.454Z 	 verbose: Send stop telemetry
+2025-06-09T04:40:04.454Z 	 info: Azurite Blob service is closing...
+2025-06-09T04:40:04.454Z 	 info: Azurite Queue service is closing...
+2025-06-09T04:40:04.455Z 	 info: Azurite Table service is closing...
+2025-06-09T04:40:04.455Z 	 info: BlobGCManager:close() Start closing BlobGCManager. Set status to Closing.
+2025-06-09T04:40:04.456Z 	 info: QueueGCManager:close() Start closing QueueGCManager, set status to Closing.
+2025-06-09T04:40:04.456Z 	 info: BlobGCManager:start() Mark and sweep loop is closed.
+2025-06-09T04:40:04.456Z 	 info: BlobGCManager:close() BlobGCManager successfully closed. Set status to Closed.
+2025-06-09T04:40:04.456Z 	 info: QueueGCManager:start() Mark and sweep loop is closed.
+2025-06-09T04:40:04.456Z 	 info: QueueGCManager:close() QueueGCManager successfully closed, set status to Closed.
+2025-06-09T04:40:04.456Z 	 info: Azurite Table service successfully closed
+2025-06-09T04:40:04.457Z 	 info: Azurite Blob service successfully closed
+2025-06-09T04:40:04.457Z 	 info: Azurite Queue service successfully closed

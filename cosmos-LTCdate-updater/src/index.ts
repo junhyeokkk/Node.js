@@ -8,7 +8,7 @@ const PORT = 3000;
 app.use(express.json());
 app.use('/api', ltcRoutes);
 
-app.use(errorHandler); // 마지막에 등록
+app.use(errorHandler); // 에러처리 
 
 app.listen(PORT, () => {
   console.log(`서버가 http://localhost:${PORT} 에서 실행 중`);
