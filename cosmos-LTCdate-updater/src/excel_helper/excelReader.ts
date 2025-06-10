@@ -1,5 +1,6 @@
 import * as XLSX from 'xlsx';
 import { ExcelRow, headerMap } from '../models/excelRow';
+import { CustomError } from '../errors/CustomError';
 
 
 export function readExcel(filePath: string): ExcelRow[] {
@@ -24,7 +25,7 @@ export function readExcel(filePath: string): ExcelRow[] {
   );
 
   if (headerIndex === -1) {
-    throw new Error("헤더 행을 찾을 수 없습니다.");
+    throw new CustomError("헤더 행을 찾을 수 없습니다.", 400);
   }
 
   const headerRow = rows[headerIndex]; // 한글 헤더가 들어 있는 행

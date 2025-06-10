@@ -9,13 +9,14 @@ const accountKey = process.env.AZURE_STORAGE_ACCOUNT_KEY!;
 const endpoint = process.env.AZURITE_BLOB_ENDPOINT!;
 const containerName = process.env.AZURE_STORAGE_CONTAINER_NAME!;
 
+console.log("account =", account);
+console.log('endpoint 확인 ' , endpoint);
+console.log('container 확인 ' , containerName);
+
+
 if (!account || !accountKey || !endpoint || !containerName) {
   throw new Error("환경 변수가 제대로 로드되지 않았습니다.");
 }
-
-console.log("account =", account); // "devstoreaccount1" 나와야 함
-console.log('endpoint 확인 ' , endpoint);
-console.log('container 확인 ' , containerName);
 
 console.log("AZURE 연결 정보 로드됨");
 

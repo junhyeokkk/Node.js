@@ -14,6 +14,7 @@ function updateRowWithLatestLTC(row: ExcelRow, resultTime: { latest: string, ear
   updateCounter.count++;
 }
 
+// Cosmos <-> excel 데이터 변경 
 export async function updateLTCWithExcel(inputPath: string, outputPath: string) {
   const data: ExcelRow[] = readExcel(inputPath);
 
@@ -24,6 +25,7 @@ export async function updateLTCWithExcel(inputPath: string, outputPath: string) 
     if (!shouldProcessRow(row)) continue;
 
     const sk = row.shipKey;
+
     const resultTime = await getLTCMinMaxByShipkey(sk);
 
     if (!resultTime.latest) continue;
@@ -47,13 +49,13 @@ export async function updateLTCWithExcel(inputPath: string, outputPath: string) 
     }
 
     // 조건 3: DB의 최신 날짜가 더 나중일 경우
-    if (latestDate > rowDate) {
+    if (latestDate >= rowDate) {
       updateRowWithLatestLTC(row, resultTime as { latest: string, earliest: string | null, appVersion: string | null }, sk, updatedShipkeys, updateCounter);
     }
   }
 
   try {
-    if (updateCounter.count > 0) {
+    if (updateCounter.count >= 0) {
       writeExcel(outputPath, data);
       console.log(`${updateCounter.count}건 업데이트 완료`);
     } else {

@@ -1,5 +1,6 @@
 import { containerClient } from "../config/blobClient";
 
+// blob db 연결 테스트 코드 
 async function listBlobs() {
 
     const exists = await containerClient.exists();

@@ -1,12 +1,12 @@
 import { getContainer } from '../config/cosmosClient';
 
-// shipkey로 NoonReport에서 선박을 찾아 ltctime의 최신과 과거 조회 (단일 쿼리 버전)
+// shipkey로 NoonReport에서 선박을 찾아 ltctime의 최신, 앱 버전, 과거 조회 
 export async function getLTCMinMaxByShipkey(
     sk: string
   ): Promise<{ earliest: string | null; latest: string | null; appVersion: string | null }> {
     const container = getContainer();
 
-  // 최신 LTC + appVersion 조회 (TOP 1)
+  // 최신 LTC + appVersion 조회 (TOP 1) ==> 마지막 리포트 버전 앱 버전 조회 
   const queryLatest = {
     query: `
       SELECT TOP 1 c.DATE_EVENT_LTC AS latest, c.APP_VERSION AS appVersion
@@ -27,7 +27,8 @@ export async function getLTCMinMaxByShipkey(
     parameters: [{ name: "@sk", value: sk }],
   };
 
-  const [latestRes, earliestRes] = await Promise.all([
+  const [latestRes, earliestRes] = await Promise.all([ // Promise.all([...]) => 두 개의 비동기 작업 병렬 실행
+   
     container.items.query(queryLatest, { partitionKey: sk }).fetchAll(),
     container.items.query(queryEarliest, { partitionKey: sk }).fetchAll(),
   ]);
@@ -36,33 +37,14 @@ export async function getLTCMinMaxByShipkey(
   const appVersion = latestRes.resources?.[0]?.appVersion ?? null;
   const earliest = earliestRes.resources?.[0]?.earliest ?? null;
 
+  if(latest != null && appVersion != null && earliest != null) {
+    console.log('가장 최근 : ', latest);
+    console.log('앱 버전 : ', appVersion);
+    console.log('가장 처음 : ', earliest);
+  }
+
   return { earliest, latest, appVersion };
 }
 
-
-// shipkey로 NoonReport에서 선박을 찾아 ltctime의 최신과 과거 조회 (쿼리 2개 버전)
-// export async function getLTCMinMaxByShipkey(sk: string): Promise<{ earliest: string | null, latest: string | null }> {
-//   const container = getContainer();
-
-//   const queryLatest = {
-//     query: "SELECT TOP 1 c.DATE_EVENT_LTC FROM c WHERE c.sk = @sk ORDER BY c.DATE_EVENT_LTC DESC",
-//     parameters: [{ name: "@sk", value: sk }],
-//   };
-  
-//   const queryEarliest = {
-//     query: "SELECT TOP 1 c.DATE_EVENT_LTC FROM c WHERE c.sk = @sk ORDER BY c.DATE_EVENT_LTC ASC",
-//     parameters: [{ name: "@sk", value: sk }],
-//   };
-
-//   const [latestRes, earliestRes] = await Promise.all([
-//     container.items.query(queryLatest, { partitionKey: sk }).fetchAll(),
-//     container.items.query(queryEarliest, { partitionKey: sk }).fetchAll(),
-//   ]);
-
-//   const latest = latestRes.resources?.[0]?.DATE_EVENT_LTC ?? null;
-//   const earliest = earliestRes.resources?.[0]?.DATE_EVENT_LTC ?? null;
-
-//   return { earliest, latest };
-// }
 
 

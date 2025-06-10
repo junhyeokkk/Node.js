@@ -2,7 +2,8 @@ import express, { Request, Response } from 'express';
 import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
-import { handleLTCUpdate } from '../controllers/ltc.controller';
+import { handleLTCUpdate } from '../controllers/excel.controller';
+import { CustomError } from '../errors/CustomError';
 
 const router = express.Router();
 
@@ -22,8 +23,7 @@ router.get('/ltc/download/:filename',
   const filePath = path.join(__dirname, '../response_excel', filename);
 
   if (!fs.existsSync(filePath)) {
-    res.status(404).json({ error: '파일을 찾을 수 없습니다.' });
-    return;
+    throw new CustomError('파일을 찾을 수 없습니다다.', 404);
   }
 
   res.download(filePath);

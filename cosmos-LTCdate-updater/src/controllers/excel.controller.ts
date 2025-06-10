@@ -1,9 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import path from 'path';
 import fs from 'fs';
-import { updateLTCWithExcel } from '../services/ltc.service';
+import { updateLTCWithExcel } from '../services/excel.service';
 import { CustomError } from '../errors/CustomError';
-
 
 export async function handleLTCUpdate(req: Request, res: Response, next: NextFunction) {
   try {
