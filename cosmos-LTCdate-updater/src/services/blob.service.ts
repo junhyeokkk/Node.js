@@ -33,7 +33,7 @@ export class AzureService {
 
     for await (const blob of latestFiles) {
       if (blob.name.endsWith(".json")) {
-        return blob.name;
+        return blob.properties.lastModified.toString();
       }
     }
 

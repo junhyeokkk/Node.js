@@ -8,7 +8,7 @@ export async function handleLTCUpdate(req: Request, res: Response, next: NextFun
   try {
     
     if (!req.file) {
-      throw new CustomError('엑셀 파일이 필요합니다.', 400);
+      throw new CustomError('엑셀 파일이 필요합니다.', 404);
     }
 
     const inputPath = req.file.path;
